@@ -1,6 +1,6 @@
 extends Node2D
 
-var Bullet = preload("res://Bullet.tscn")
+var Bullet = preload("res://Items/Bullet.tscn")
 
 func attack():
 	for i in range(8):

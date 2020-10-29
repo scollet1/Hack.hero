@@ -2,7 +2,7 @@ extends GraphEdit
 
 onready var queue = []
 onready var nodes = {}
-onready var IfClause = preload("res://IfClause.tscn")
+onready var IfClause = preload("res://Scripting/IfClause.tscn")
 
 func new_if_clause(num_out):
 	var ifclause = IfClause.instance()
@@ -38,7 +38,7 @@ func _process(delta):
 		var node = get_node_or_null(node_name)
 		if node:
 			var next_node = node.exec() # please no loops
-			if node_name in nodes and next_node != -1 and next_node < len(nodes[node_name]):
+			if node_name in nodes and next_node != -1 and next_node and next_node < len(nodes[node_name]):
 				queue.push_back(nodes[node_name][next_node]['to'])
 
 func on_connection_request(from, fslot, to, tslot):

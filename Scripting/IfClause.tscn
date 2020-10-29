@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://IfClause.gd" type="Script" id=1]
+[ext_resource path="res://Scripting/IfClause.gd" type="Script" id=1]
 
 [node name="IfClause" type="GraphNode"]
 margin_right = 118.0

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://colored_transparent.png" type="Texture" id=1]
-[ext_resource path="res://Gun.gd" type="Script" id=2]
-[ext_resource path="res://RayCast2D.gd" type="Script" id=3]
+[ext_resource path="res://assets/colored_transparent.png" type="Texture" id=1]
+[ext_resource path="res://Items/Gun.gd" type="Script" id=2]
+[ext_resource path="res://Characters/NonPlayer/Turret.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.21418, 7.56145 )
@@ -10,16 +10,17 @@ extents = Vector2( 7.21418, 7.56145 )
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.125, 0.181818 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.835294, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 width = 300
 
 [node name="Turret" type="StaticBody2D"]
 scale = Vector2( 2.69219, 2.69219 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -45,7 +46,6 @@ position = Vector2( 14.3656, -1.14967 )
 rotation = 4.71239
 enabled = true
 cast_to = Vector2( 0, 150 )
-script = ExtResource( 3 )
 
 [node name="Line2D" type="Line2D" parent="Gun"]
 position = Vector2( -10.6344, -1.7245 )
@@ -57,7 +57,7 @@ default_color = Color( 1, 0.631373, 0.054902, 1 )
 [node name="Light2D" type="Light2D" parent="Gun"]
 position = Vector2( 15.8253, -1.28623 )
 scale = Vector2( 1.06905, 3.91212 )
-texture = SubResource( 3 )
+texture = SubResource( 4 )
 offset = Vector2( 149.64, -0.0473309 )
 color = Color( 1, 1, 0, 1 )
 shadow_enabled = true

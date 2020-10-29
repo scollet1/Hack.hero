@@ -1,6 +1,6 @@
 extends ToolButton
 
-var ScriptNode = preload("res://ScriptNode.tscn")
+var ScriptNode = preload("res://Scripting/ScriptNode.tscn")
 
 func on_press():
 	var node = ScriptNode.instance()

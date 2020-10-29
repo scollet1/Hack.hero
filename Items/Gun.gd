@@ -1,6 +1,8 @@
 extends Node2D
+class_name Gun
+func get_class(): return "Gun"
 
-var Bullet = preload("res://Bullet.tscn")
+var Bullet = preload("res://Items/Bullet.tscn")
 
 var player
 

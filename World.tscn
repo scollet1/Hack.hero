@@ -1,25 +1,25 @@
 [gd_scene load_steps=38 format=2]
 
-[ext_resource path="res://colored_transparent.png" type="Texture" id=1]
-[ext_resource path="res://CodeWindow.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Button.gd" type="Script" id=3]
+[ext_resource path="res://assets/colored_transparent.png" type="Texture" id=1]
+[ext_resource path="res://Scripting/CodeWindow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripting/Button.gd" type="Script" id=3]
 [ext_resource path="res://World.gd" type="Script" id=4]
-[ext_resource path="res://Hero.gd" type="Script" id=5]
-[ext_resource path="res://Key.gd" type="Script" id=6]
-[ext_resource path="res://StartNode.gd" type="Script" id=7]
-[ext_resource path="res://Shotgun.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Shotgun.gd" type="Script" id=9]
-[ext_resource path="res://Scanner.gd" type="Script" id=10]
-[ext_resource path="res://AddIfClause.gd" type="Script" id=11]
-[ext_resource path="res://NewIf.gd" type="Script" id=12]
-[ext_resource path="res://CancelIfClause.gd" type="Script" id=13]
-[ext_resource path="res://ControlFlow.gd" type="Script" id=14]
-[ext_resource path="res://NewScript.gd" type="Script" id=15]
-[ext_resource path="res://sheet_white1x.png" type="Texture" id=16]
-[ext_resource path="res://sheet_white2x.png" type="Texture" id=17]
+[ext_resource path="res://Characters/Player/Hero.gd" type="Script" id=5]
+[ext_resource path="res://Items/Key.gd" type="Script" id=6]
+[ext_resource path="res://Scripting/StartNode.gd" type="Script" id=7]
+[ext_resource path="res://Items/Shotgun.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Items/Shotgun.gd" type="Script" id=9]
+[ext_resource path="res://Items/Scanner.gd" type="Script" id=10]
+[ext_resource path="res://Scripting/AddIfClause.gd" type="Script" id=11]
+[ext_resource path="res://Scripting/NewIf.gd" type="Script" id=12]
+[ext_resource path="res://Scripting/CancelIfClause.gd" type="Script" id=13]
+[ext_resource path="res://Scripting/ControlFlow.gd" type="Script" id=14]
+[ext_resource path="res://Scripting/NewScript.gd" type="Script" id=15]
+[ext_resource path="res://assets/sheet_white1x.png" type="Texture" id=16]
+[ext_resource path="res://assets/sheet_white2x.png" type="Texture" id=17]
 [ext_resource path="res://vector_style6.png" type="Texture" id=18]
-[ext_resource path="res://Emotes.gd" type="Script" id=19]
-[ext_resource path="res://Turret.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/Emotes.gd" type="Script" id=19]
+[ext_resource path="res://Characters/NonPlayer/Turret.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.0502, 15.7524 )
@@ -204,6 +204,9 @@ polygon = PoolVector2Array( -6.81734, -6.90348, 7.17752, -6.96709, 7.17752, 6.89
 
 [node name="Hack" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="Turret" parent="." instance=ExtResource( 20 )]
+position = Vector2( 461.913, -224.481 )
 
 [node name="Hero" type="KinematicBody2D" parent="."]
 script = ExtResource( 5 )
@@ -415,10 +418,8 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 561, 188, 16, 14 )
 
-[node name="Turret" parent="." instance=ExtResource( 20 )]
-position = Vector2( 352.592, -253.243 )
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.580392, 0.580392, 0.580392, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -1,24 +1,26 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Bullet.gd" type="Script" id=1]
-[ext_resource path="res://colored_transparent.png" type="Texture" id=2]
-[ext_resource path="res://light_mask_1.png" type="Texture" id=3]
+[ext_resource path="res://Items/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/colored_transparent.png" type="Texture" id=2]
+[ext_resource path="res://assets/light_mask_1.png" type="Texture" id=3]
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.03746
 
 [sub_resource type="SphereMesh" id=2]
 
-[sub_resource type="VisualShaderNodeColorConstant" id=4]
+[sub_resource type="VisualShaderNodeColorConstant" id=3]
 constant = Color( 1, 0.5625, 0, 1 )
 
-[sub_resource type="VisualShaderNodeInput" id=5]
+[sub_resource type="VisualShaderNodeInput" id=4]
 input_name = "texture"
 
-[sub_resource type="VisualShaderNodeTexture" id=6]
+[sub_resource type="VisualShaderNodeTexture" id=5]
 source = 2
 
-[sub_resource type="VisualShader" id=7]
+[sub_resource type="VisualShader" id=6]
 code = "shader_type canvas_item;
 
 
@@ -59,16 +61,16 @@ graph_offset = Vector2( -151.995, 79.6853 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 560, 140 )
-nodes/fragment/2/node = SubResource( 4 )
+nodes/fragment/2/node = SubResource( 3 )
 nodes/fragment/2/position = Vector2( 360, 100 )
-nodes/fragment/3/node = SubResource( 5 )
+nodes/fragment/3/node = SubResource( 4 )
 nodes/fragment/3/position = Vector2( 120, 240 )
-nodes/fragment/7/node = SubResource( 6 )
+nodes/fragment/7/node = SubResource( 5 )
 nodes/fragment/7/position = Vector2( 320, 200 )
 nodes/fragment/connections = PoolIntArray( 3, 0, 7, 2, 7, 1, 0, 1, 2, 0, 0, 0 )
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 7 )
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
 
 [node name="Bullet" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -83,7 +85,7 @@ mesh = SubResource( 2 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 8 )
+material = SubResource( 7 )
 position = Vector2( 1.5, 0 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )

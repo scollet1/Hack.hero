@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://colored_transparent.png" type="Texture" id=1]
-[ext_resource path="res://SwordAttack.anim" type="Animation" id=2]
+[ext_resource path="res://assets/colored_transparent.png" type="Texture" id=1]
+[ext_resource path="res://Items/SwordAttack.anim" type="Animation" id=2]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.84299, 6.63727 )

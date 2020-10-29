@@ -9,6 +9,7 @@ const DOWN = 1
 const LEFT = -1
 const RIGHT = 1
 const STRAIGHT = 0
+const NONE = 0
 
 func exec():
 	var _text = ""
@@ -16,13 +17,13 @@ func exec():
 		_text = current_owner._text.split('\n')
 	for line in _text:
 		var expression = Expression.new()
-		var error = expression.parse(line, ["Hack", "LEFT", "RIGHT", "UP", "DOWN"])
+		var error = expression.parse(line, ["Hack", "LEFT", "RIGHT", "UP", "DOWN", "STRAIGHT", "NONE"])
 		var result_label = $VBoxContainer/RichTextLabel
 		if error != OK:
 			var error_text = expression.get_error_text()
 			result_label.text = error_text
 			return
-		var result = expression.execute([find_parent("Hack"), LEFT, RIGHT, UP, DOWN], null, true)
+		var result = expression.execute([find_parent("Hack"), LEFT, RIGHT, UP, DOWN, STRAIGHT, NONE], null, true)
 		if !expression.has_execute_failed():
 			var s_res = str(result)
 			if s_res.empty():
